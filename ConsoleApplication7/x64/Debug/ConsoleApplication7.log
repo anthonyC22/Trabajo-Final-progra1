@@ -1,0 +1,10 @@
+﻿  stdafx.cpp
+  AssemblyInfo.cpp
+  ConsoleApplication7.cpp
+ConsoleApplication7.cpp(214): warning C4551: la llamada a la función no tiene lista de argumentos
+ConsoleApplication7.cpp(214): warning C4996: 'kbhit': The POSIX name for this item is deprecated. Instead, use the ISO C and C++ conformant name: _kbhit. See online help for details.
+  C:\Program Files (x86)\Windows Kits\10\Include\10.0.10240.0\ucrt\conio.h(458): note: vea la declaración de 'kbhit'
+  Generando código...
+  AssemblyInfo.obj : /DEBUG:FASTLINK no se admite cuando hay presente código administrado; reiniciando vínculo con /DEBUG:FULL
+  ConsoleApplication7.vcxproj -> E:\ANTHONY\TFProgra1\Trabajo-Final-progra1\x64\Debug\ConsoleApplication7.exe
+  ConsoleApplication7.vcxproj -> E:\ANTHONY\TFProgra1\Trabajo-Final-progra1\x64\Debug\ConsoleApplication7.pdb (Partial PDB)
