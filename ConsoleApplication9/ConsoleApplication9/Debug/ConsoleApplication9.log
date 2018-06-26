@@ -1,0 +1,6 @@
+﻿  ConsoleApplication9.cpp
+ConsoleApplication9.cpp(378): warning C4996: 'kbhit': The POSIX name for this item is deprecated. Instead, use the ISO C and C++ conformant name: _kbhit. See online help for details.
+  C:\Program Files (x86)\Windows Kits\10\Include\10.0.10240.0\ucrt\conio.h(458): note: vea la declaración de 'kbhit'
+  AssemblyInfo.obj : /DEBUG:FASTLINK no se admite cuando hay presente código administrado; reiniciando vínculo con /DEBUG:FULL
+  ConsoleApplication9.vcxproj -> E:\ANTHONY\TFProgra1\Trabajo-Final-progra1\ConsoleApplication9\Debug\ConsoleApplication9.exe
+  ConsoleApplication9.vcxproj -> E:\ANTHONY\TFProgra1\Trabajo-Final-progra1\ConsoleApplication9\Debug\ConsoleApplication9.pdb (Partial PDB)
