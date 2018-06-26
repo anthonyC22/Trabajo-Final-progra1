@@ -11,30 +11,61 @@ using namespace std;
 struct enemigo {
 	int x, y;
 	int direccion;
-	int dx = 1 * direccion, dy = 1 * direccion;
+	int dx = 1 , dy = 1;
 	// 1.Vehiculo, 2.Cocodrilo, 3.Tren
 	int tipo;
 
 	void dibuja() {
 		if (tipo == 1) {
-			if (direccion < 0) {
+			if (direccion > 0) {
+				Console::SetCursorPosition(x, y);
 				cout << (char)219 << (char)219 << (char)254;
 			}
 			else {
+				Console::SetCursorPosition(x, y);
 				cout << (char)254 << (char)219 << (char)219;
 			}
+		}
+		if (tipo == 2) {
+			Console::SetCursorPosition(x, y);
+			cout << " ___ |[]|_n__n_I_c";
+			Console::SetCursorPosition(x, y-1);
+			cout << "| ___ || __ | ### | ____}";
+			Console::SetCursorPosition(x, y - 2);
+			cout << "O - O--O - O++ + --O - O";
 		}
 		//TODO: Realizar la validacion para los otros tipos
 	}
 
 	void mover() {
-		if (y < 0) {
-			y = 79;
+		Console::SetCursorPosition(x, y);
+		cout << "   ";
+		if (tipo == 1) {
+			if (x < 4) {
+				x = 78;
+
+			}
+			else if (x > 78) {
+				x = 6;
+
+			}
+
+			if (direccion < 0) {
+				x -= dx;
+
+			}
+			else
+			{
+				x += dx;
+			}
 		}
-		else if (y>80) {
-			y = 1;
+		if (tipo == 2) {
+			if (x + 25 > 78) {
+				x = 4;
+			}
+			x += dx;
 		}
-		y += dx;
+		
 	}
 };
 
@@ -44,6 +75,8 @@ struct jugador
 	int y = 39;
 	int tecla;
 	void dibuja() {
+
+
 		Console::SetCursorPosition(x, y);
 		cout << (char)200 << (char)219 << (char)188;
 		Console::SetCursorPosition(x, y + 1);
@@ -55,23 +88,27 @@ struct jugador
 		tecla = _getch();
 		if (tecla == 224) {
 			tecla = _getch();
-			if (x < 40 && y < 79) {
+			Console::SetCursorPosition(x, y);
+			cout << "   ";
+			Console::SetCursorPosition(x, y + 1);
+			cout << "   ";
+			if (x < 80 && y < 40) {
 				switch (tecla) {
 				case 72:
-					if (x > 0)
-						x -= 1;
-					break;
-				case 80:
-					if (x < 40)
-						x += 1;
-					break;
-				case 77:
-					if (y < 80)
-						y += 1;
-					break;
-				case 75:
 					if (y > 0)
 						y -= 1;
+					break;
+				case 80:
+					if (y < 40)
+						y += 1;
+					break;
+				case 77:
+					if (x < 80)
+						x += 1;
+					break;
+				case 75:
+					if (x > 0)
+						x -= 1;
 					break;
 				}
 			}
@@ -371,22 +408,27 @@ struct jugador
 
 	void juega(enemigo*vehiculo,jugador jugador ) {
 		
+		dibujaMapa(matriz1);
+
 		while (1) {
 
-			dibujaMapa(matriz1);
-
 			if (kbhit()) {
+				//Console::Clear();
 				jugador.mover();
+				//dibujaMapa(matriz1);
+				jugador.dibuja();
 			}
-			jugador.dibuja();
-
-			for (int i = 0; i < 3; i++)
+			
+			
+			for (int i = 0; i < 9; i++)
 			{
 				vehiculo[i].dibuja();
 			}
 
-			for (int i = 0; i < 3; i++)
+			for (int i = 0; i < 9; i++)
 			{
+				_sleep(30);
+
 				vehiculo[i].mover();
 			}
 			/*_sleep(30);
@@ -465,7 +507,7 @@ struct jugador
 			cout << (char)219 << (char)219 << (char)254;
 			Console::SetCursorPosition(x7, y3);
 			cout << (char)219 << (char)219 << (char)254;*/
-			Console::Clear();
+			
 		}
 	}
 
@@ -473,19 +515,56 @@ struct jugador
 
 int main()
 {
-	enemigo * vehiculos = new enemigo[3];
+	enemigo * vehiculos = new enemigo[9];
 	jugador personaje;
 	personaje.x = 40;
 	personaje.y = 39;
+
 	vehiculos[0].direccion = 1;
-	vehiculos[0].x = 1;
-	vehiculos[0].y = 1;
-	vehiculos[1].direccion = -1;
-	vehiculos[1].x = 1;
-	vehiculos[1].y = 1;
+	vehiculos[0].x = 20;
+	vehiculos[0].y = 29;
+	vehiculos[0].tipo = 1;
+
+	vehiculos[1].direccion = 1;
+	vehiculos[1].x = 40;
+	vehiculos[1].y = 29;
+	vehiculos[1].tipo = 1;
+
 	vehiculos[2].direccion = 1;
-	vehiculos[2].x = 1;
-	vehiculos[2].y = 1;
+	vehiculos[2].x = 60;
+	vehiculos[2].y = 29;
+	vehiculos[2].tipo = 1;
+
+	vehiculos[3].direccion = -1;
+	vehiculos[3].x = 20;
+	vehiculos[3].y = 32;
+	vehiculos[3].tipo = 1;
+
+	vehiculos[4].direccion = -1;
+	vehiculos[4].x = 40;
+	vehiculos[4].y = 32;
+	vehiculos[4].tipo = 1;
+
+	vehiculos[5].direccion = -1;
+	vehiculos[5].x = 60;
+	vehiculos[5].y = 32;
+	vehiculos[5].tipo = 1;
+
+	vehiculos[6].direccion = 1;
+	vehiculos[6].x = 20;
+	vehiculos[6].y = 35;
+	vehiculos[6].tipo = 1;
+
+	vehiculos[7].direccion = 1;
+	vehiculos[7].x = 40;
+	vehiculos[7].y = 35;
+	vehiculos[7].tipo = 1;
+
+	vehiculos[8].direccion = 1;
+	vehiculos[8].x = 60;
+	vehiculos[8].y = 35;
+	vehiculos[8].tipo = 1;
+
 	juega(vehiculos, personaje);
 	return 0;
 }

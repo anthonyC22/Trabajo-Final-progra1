@@ -1,2 +1,2 @@
-#TargetFrameworkVersion=v3.5:PlatformToolSet=v140:EnableManagedIncrementalBuild=true:VCToolArchitecture=Native32Bit:WindowsTargetPlatformVersion=8.1
-Debug|Win32|E:\ANTHONY\TFProgra1\Trabajo-Final-progra1\ConsoleApplication9\|
+#TargetFrameworkVersion=v4.0:PlatformToolSet=v141:EnableManagedIncrementalBuild=true:VCToolArchitecture=Native32Bit:WindowsTargetPlatformVersion=10.0.17134.0
+Debug|Win32|C:\Users\jadis\Desktop\Anthony\TF-Progra\Trabajo-Final-progra1\ConsoleApplication9\|
